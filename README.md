@@ -12,9 +12,14 @@ This will be an all encompassing bot made for ACC
 - [ ] Track Info
 - [ ] Endurance Strategy Calculator
 - [ ] Session Analysis
-    - [] Sectors with Most Time Lost
-    - [] Alien Comparisons
+    - [ ] Sectors with Most Time Lost
+    - [ ] Alien Comparisons
 - [ ] Live Race Help
     - [ ] Gap To Car Ahead (if you are gaining)
     - [ ] Gap To Car Behind (if they are gaining)
     - [ ] Fuel Management
+- SRA Info
+    - [ ] Hotlap Leaderboards
+    - [ ] Hotlap Comparisons
+    - [ ] Hotstint Leaderboards
+    - [ ] Hotstint Comparisons
