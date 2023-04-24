@@ -178,11 +178,11 @@ class Configure_Event_JSON(nextcord.ui.Modal):
             "track": self.track,
             "preRaceWaitingTimeSeconds": 80,
             "sessionOverTimeSeconds": 120,
-            "ambientTemp": self.ambientTemp.value,
-            "cloudLevel": self.cloudLevel.value,
-            "rain": self.rain.value,
-            "weatherRandomness": self.weatherRandomness.value,
-            "simracerWeatherConditions": self.simracerWeatherConditions.value,
+            "ambientTemp": int(self.ambientTemp.value),
+            "cloudLevel": float(self.cloudLevel.value),
+            "rain": float(self.rain.value),
+            "weatherRandomness": int(self.weatherRandomness.value),
+            "simracerWeatherConditions": int(self.simracerWeatherConditions.value),
             "sessions": [],    
             "configVersion": 1
         }
@@ -341,31 +341,31 @@ class ConfigureSession(nextcord.ui.Modal):
         print("Callback Reached")
         if self.sessionType == "Practice":
             self.session = {
-            "hourOfDay": self.hourOfDay.value,
-            "dayOfWeekend": self.dayOfWeekend.value,
-            "timeMultiplier": self.timeMultiplier.value,
+            "hourOfDay": int(self.hourOfDay.value),
+            "dayOfWeekend": int(self.dayOfWeekend.value),
+            "timeMultiplier": float(self.timeMultiplier.value),
             "sessionType": "P",
-            "sessionDurationMinutes": self.sessionDurationMinutes.value
+            "sessionDurationMinutes": int(self.sessionDurationMinutes.value)
             }
             self.stop()
             
         if self.sessionType == "Qualy":
             self.session = {
-            "hourOfDay": self.hourOfDay.value,
-            "dayOfWeekend": self.dayOfWeekend.value,
-            "timeMultiplier": self.timeMultiplier.value,
+            "hourOfDay": int(self.hourOfDay.value),
+            "dayOfWeekend": int(self.dayOfWeekend.value),
+            "timeMultiplier": float(self.timeMultiplier.value),
             "sessionType": "Q",
-            "sessionDurationMinutes": self.sessionDurationMinutes.value
+            "sessionDurationMinutes": int(self.sessionDurationMinutes.value)
             }
             self.stop()
 
         if self.sessionType == "Race":
             self.session = {
-            "hourOfDay": self.hourOfDay.value,
-            "dayOfWeekend": self.dayOfWeekend.value,
-            "timeMultiplier": self.timeMultiplier.value,
+            "hourOfDay": int(self.hourOfDay.value),
+            "dayOfWeekend": int(self.dayOfWeekend.value),
+            "timeMultiplier": float(self.timeMultiplier.value),
             "sessionType": "R",
-            "sessionDurationMinutes": self.sessionDurationMinutes.value
+            "sessionDurationMinutes": int(self.sessionDurationMinutes.value)
             }
             self.stop()
 
@@ -432,6 +432,7 @@ class SettingJsonBasicButton(nextcord.ui.Button):
                 label = "Edit Basic Settings"
             )
         self.settings = settings
+
     async def callback(self, interaction:nextcord.Interaction):
         print("BASIC BUTTON")
         # print(self.settings)
@@ -440,8 +441,8 @@ class SettingJsonBasicButton(nextcord.ui.Button):
         await modal.wait()
         self.settings["serverName"] = modal.serverName.value
         self.settings["adminPassword"] = modal.adminPassword.value
-        self.settings["trackMedalsRequirement"] = modal.trackMedalsRequirement.value
-        self.settings["safetyRatingRequirement"] = modal.safetyRatingRequirement.value
+        self.settings["trackMedalsRequirement"] = int(modal.trackMedalsRequirement.value)
+        self.settings["safetyRatingRequirement"] = int(modal.safetyRatingRequirement.value)
         self.settings["password"] = modal.password.value
 
         with open(SETTINGSJSON, 'w') as fp:
@@ -522,9 +523,9 @@ class SettingJsonMiscButton(nextcord.ui.Button):
         modal = ConfigureMiscSettings()
         await interaction.response.send_modal(modal=modal)
         await modal.wait()
-        self.settings["racecraftRatingRequirement"] = modal.racecraftRatingRequirement.value
-        self.settings["dumpLeaderboards"] = modal.dumpLeaderboards.value
-        self.settings["maxCarSlots"] = modal.maxCarSlots.value
+        self.settings["racecraftRatingRequirement"] = int(modal.racecraftRatingRequirement.value)
+        self.settings["dumpLeaderboards"] = int(modal.dumpLeaderboards.value)
+        self.settings["maxCarSlots"] = int(modal.maxCarSlots.value)
         self.settings["spectatorPassword"] = modal.spectatorPassword.value
 
         with open(SETTINGSJSON, 'w') as fp:
@@ -586,10 +587,10 @@ class FinishEditingSettingsJson(nextcord.ui.Button):
         super().__init__(
                 label = "Finish Editing Settings"
             )
-        with open(SETTINGSJSON, "rb") as pf:
-            self.settings = json.load(pf)
     
     async def callback(self, interaction:nextcord.Interaction):
+       with open(SETTINGSJSON, "rb") as pf:
+            self.settings = json.load(pf)
        await interaction.response.send_message(f"Finished Editing `settings.json`! Here is what you configured it to:\n```json\n{json.dumps(self.settings, indent=4)}\n```")
 
 class Configure_Settings_JSON(nextcord.ui.View):
@@ -622,6 +623,17 @@ class Create_ACC_Server(commands.Cog):
     async def _edit_acc_server_configs(self, interaction: nextcord.Interaction):
         view = Create_ACC_Server_Button()
         await interaction.response.send_message(view=view, ephemeral=True)
+    
+    @nextcord.slash_command(name="view_acc_server_configs", description="Edit ACC Server Configs")
+    async def _view_acc_server_configs(self, interaction: nextcord.Interaction):
+        with open(EVENTJSON, "rb") as pf:
+            eventSettings = json.load(pf)
+            await interaction.response.send_message(f"Viewing `event.json`! Here is what you configured it to:\n```JSON\n{json.dumps(eventSettings, indent=4)}\n```")
+        
+        with open(SETTINGSJSON, "rb") as pf:
+            eventSettings = json.load(pf)
+            await interaction.followup.send(f"Viewing `settings.json`! Here is what you configured it to:\n```JSON\n{json.dumps(eventSettings, indent=4)}\n```")
+
         
     @nextcord.slash_command(name="get_acc_admin_handbook", description="Get PDF Download of Admin Handbook for ACC Server")
     async def _get_acc_admin_handbook(self, interaction: nextcord.Interaction):

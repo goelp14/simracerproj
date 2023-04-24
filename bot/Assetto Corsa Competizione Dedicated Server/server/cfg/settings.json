@@ -2,12 +2,12 @@
     "serverName": "Learning Tracks - Feel Free to Join",
     "adminPassword": "",
     "carGroup": "GT3",
-    "trackMedalsRequirement": "-1",
-    "safetyRatingRequirement": "-1",
-    "racecraftRatingRequirement": "-1",
-    "dumpLeaderboards": "1",
+    "trackMedalsRequirement": -1,
+    "safetyRatingRequirement": 40,
+    "racecraftRatingRequirement": -1,
+    "dumpLeaderboards": 1,
     "password": "",
-    "maxCarSlots": "10",
+    "maxCarSlots": 15,
     "spectatorPassword": "",
     "configVersion": 1
 }

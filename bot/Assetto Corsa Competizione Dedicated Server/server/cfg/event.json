@@ -2,18 +2,18 @@
     "track": "paul_ricard",
     "preRaceWaitingTimeSeconds": 80,
     "sessionOverTimeSeconds": 120,
-    "ambientTemp": "21",
-    "cloudLevel": "0.5",
-    "rain": "0.0",
-    "weatherRandomness": "0",
-    "simracerWeatherConditions": "1",
+    "ambientTemp": 21,
+    "cloudLevel": 0.5,
+    "rain": 0.0,
+    "weatherRandomness": 0,
+    "simracerWeatherConditions": 1,
     "sessions": [
         {
-            "hourOfDay": "17",
-            "dayOfWeekend": "3",
-            "timeMultiplier": "1",
+            "hourOfDay": 17,
+            "dayOfWeekend": 3,
+            "timeMultiplier": 1.0,
             "sessionType": "P",
-            "sessionDurationMinutes": "120"
+            "sessionDurationMinutes": 60
         }
     ],
     "configVersion": 1
