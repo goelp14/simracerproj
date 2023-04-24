@@ -23,4 +23,9 @@ This will be an all encompassing bot made for ACC
     - [ ] Hotlap Comparisons
     - [ ] Hotstint Leaderboards
     - [ ] Hotstint Comparisons
-- [ ] Spawn Server
+- ACC Server
+    - [x] Edit Event Json Config from Bot
+    - [x] Edit Settings Json Config from Bot
+    - [x] Get Admin Handbook
+    - [x] Start ACC Server
+    - [x] Kill ACC Server
