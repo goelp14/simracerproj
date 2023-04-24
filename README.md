@@ -18,14 +18,16 @@ This will be an all encompassing bot made for ACC
     - [ ] Gap To Car Ahead (if you are gaining)
     - [ ] Gap To Car Behind (if they are gaining)
     - [ ] Fuel Management
-- SRA Info
+- [ ] SRA Info
     - [ ] Hotlap Leaderboards
     - [ ] Hotlap Comparisons
     - [ ] Hotstint Leaderboards
     - [ ] Hotstint Comparisons
-- ACC Server
+- [ ] ACC Server
     - [x] Edit Event Json Config from Bot
     - [x] Edit Settings Json Config from Bot
     - [x] Get Admin Handbook
     - [x] Start ACC Server
     - [x] Kill ACC Server
+    - [ ] Copy SRA Server Settings
+    - [ ] Load Server Presets
