@@ -23,3 +23,4 @@ This will be an all encompassing bot made for ACC
     - [ ] Hotlap Comparisons
     - [ ] Hotstint Leaderboards
     - [ ] Hotstint Comparisons
+- [ ] Spawn Server
