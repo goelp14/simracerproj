@@ -1,0 +1,20 @@
+{
+    "track": "hungaroring",
+    "preRaceWaitingTimeSeconds": 80,
+    "sessionOverTimeSeconds": 120,
+    "ambientTemp": "21",
+    "cloudLevel": "0.5",
+    "rain": "0.0",
+    "weatherRandomness": "0",
+    "simracerWeatherConditions": "1",
+    "sessions": [
+        {
+            "hourOfDay": "17",
+            "dayOfWeekend": "3",
+            "timeMultiplier": "1",
+            "sessionType": "P",
+            "sessionDurationMinutes": "120"
+        }
+    ],
+    "configVersion": 1
+}

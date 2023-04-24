@@ -1,0 +1,31 @@
+{
+  "entries": [
+    {
+      "drivers": [
+        {
+          "firstName": "Etalerni",
+          "lastName": "Lere",
+          "shortName": "ETA",
+          "driverCategory": 2,
+          "playerID": "S76561198874157712"
+        },
+        {
+          "firstName": "Ben",
+          "lastName": "Chen",
+          "shortName": "BXC",
+          "driverCategory": 2,
+          "playerID": "S76561198155824198"
+        }
+      ],
+      "raceNumber": 420,
+      "forcedCarModel": -1,
+      "overrideDriverInfo": 1,
+      "defaultGridPosition": -1,
+      "ballastKg": 0,
+      "restrictor": 0,
+      "overrideCarModelForCustomCar": 1,
+      "isServerAdmin": 1
+    }
+  ],
+  "forceEntryList": 0
+}
